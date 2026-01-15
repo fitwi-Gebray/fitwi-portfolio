@@ -3,14 +3,14 @@ import travelPlannerImg from "../assets/projects/travel-planner.png";
 
 const projects = [
   {
-    id: 1,
-    title: "Analytics Dashboard",
+    id: 4,
+    title: "Admin Dashboard",
     role: "Frontend",
     description:
-      "A responsive dashboard with charts, tables, and filters built in React. Focused on UX, performance, and clean layout.",
-    tech: ["React", "JavaScript", "Chart.js", "CSS"],
-    liveUrl: "https://your-dashboard-demo.com",
-    githubUrl: "https://github.com/yourname/dashboard-project",
+      "A modern admin dashboard featuring analytics charts, user tables, dark mode, and a clean responsive layout. Built with React, Vite, Material UI, and Recharts.",
+    tech: ["React", "Vite", "Material UI", "Recharts", "JavaScript"],
+    liveUrl: "https://fitwi-dashboard.vercel.app",
+    githubUrl: "https://github.com/fitwi-Gebray/fitwi-dashboard",
   },
 
   // ⭐ Travel Planner moved into ID 2 ⭐
@@ -37,16 +37,7 @@ const projects = [
     githubUrl: "https://github.com/yourname/movie-app",
   },
 
-  {
-    id: 4,
-    title: "Admin Dashboard",
-    role: "Frontend",
-    description:
-      "A modern admin dashboard featuring analytics charts, user tables, dark mode, and a clean responsive layout. Built with React, Vite, Material UI, and Recharts.",
-    tech: ["React", "Vite", "Material UI", "Recharts", "JavaScript"],
-    liveUrl: "https://fitwi-dashboard.vercel.app",
-    githubUrl: "https://github.com/fitwi-Gebray/fitwi-dashboard",
-  },
+  ,
 ];
 
 export default projects;
