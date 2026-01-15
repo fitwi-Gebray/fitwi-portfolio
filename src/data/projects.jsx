@@ -28,13 +28,13 @@ const projects = [
 
   {
     id: 3,
-    title: "API-based Movie Explorer",
+    title: "E‑Commerce Store",
     role: "Frontend",
     description:
-      "Browse and search movies using a public API. Handles loading states, errors, search, and filtering.",
-    tech: ["React", "Fetch API", "CSS"],
-    liveUrl: "https://your-movie-demo.com",
-    githubUrl: "https://github.com/yourname/movie-app",
+      "A modern e‑commerce web app built with React and Vite. Features a clean product grid, dynamic routing, and a responsive UI powered by Material UI.",
+    tech: ["React", "Vite", "Material UI", "JavaScript"],
+    liveUrl: "https://fitwi-ecommerce.vercel.app",
+    githubUrl: "https://github.com/fitwi-Gebray/fitwi-ecommerce",
   },
 
   ,
