@@ -224,7 +224,7 @@ const Contact = () => {
                 <span>github.com/fitwi-Gebray</span>
               </a>
               <a
-                href="https://linkedin.com/in/fitwi-gebray-teklemichael"
+                href="https://www.linkedin.com/in/fitwi-gebray-teklemichael-4aa1a02a4/"
                 target="_blank"
                 rel="noreferrer"
                 style={{
