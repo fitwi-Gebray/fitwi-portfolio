@@ -61,16 +61,16 @@ const Contact = () => {
               <span>fitwigebray8@gmail.com</span>
             </a>
             <a
-              href="https://github.com/fitwigebray8"
+              href="https://github.com/fitwi-Gebray"
               target="_blank"
               rel="noreferrer"
               className="contact-link"
             >
               <FiGithub size={15} />
-              <span>github.com/fitwigebray8</span>
+              <span>github.com/fitwi-Gebray</span>
             </a>
             <a
-              href="https://linkedin.com/in/fitwigebray8"
+              href="https://linkedin.com/in/fitwi-Gebray"
               target="_blank"
               rel="noreferrer"
               className="contact-link"
