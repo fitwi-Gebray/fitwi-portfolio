@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Grid, TextField, Button, Alert } from "@mui/material"; // Import MUI components
 import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
-import { FiAlertCircle } from "react-icons/fi"; // Red exclamation mark icon for error
 import emailjs from "emailjs-com";
 
 const Contact = () => {
@@ -62,99 +62,100 @@ const Contact = () => {
         </p>
       </div>
 
-      <div className="contact-grid">
-        {/* Form */}
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="form-row">
-            <div className="form-field">
-              <label className="form-label">Name</label>
-              <input
-                className="form-input"
-                type="text"
-                placeholder="Your name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div className="form-field">
-              <label className="form-label">Email</label>
-              <input
-                className="form-input"
-                type="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="form-field">
-            <label className="form-label">Message</label>
-            <textarea
-              className="form-textarea"
-              placeholder="Tell me a bit about what you're looking for..."
+      <Grid container spacing={3}>
+        {/* Left Section: Contact Form */}
+        <Grid item xs={12} md={6}>
+          <form onSubmit={handleSubmit}>
+            <TextField
+              label="Name"
+              fullWidth
+              margin="normal"
+              variant="outlined"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <TextField
+              label="Email"
+              type="email"
+              fullWidth
+              margin="normal"
+              variant="outlined"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              label="Message"
+              fullWidth
+              margin="normal"
+              variant="outlined"
+              multiline
+              rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-          </div>
-          {/* Submit Button */}
-          <button type="submit" className="btn-primary">
-            <FiMail size={16} />
-            <span>Send message</span>
-          </button>
-        </form>
-
-        {/* Display success/error messages within contact area */}
-        {(statusMessage || errorMessage) && (
-          <div
-            className={`status-message ${statusMessage ? "success" : "error"}`}
-          >
-            <FiAlertCircle
-              size={20}
-              color={statusMessage ? "#4caf50" : "#f44336"}
-            />
-            <span>{statusMessage || errorMessage}</span>
-          </div>
-        )}
-
-        {/* Contact Info */}
-        <div className="contact-info">
-          <div className="contact-pill">Let&apos;s connect</div>
-          <p>
-            The fastest way to reach me is by email, but you can also find me on
-            GitHub and LinkedIn.
-          </p>
-
-          <div className="contact-links">
-            <a href="mailto:fitwigebray8@gmail.com" className="contact-link">
-              <FiMail size={15} />
-              <span>fitwigebray8@gmail.com</span>
-            </a>
-            <a
-              href="https://github.com/fitwi-Gebray"
-              target="_blank"
-              rel="noreferrer"
-              className="contact-link"
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              style={{ marginTop: "20px" }}
             >
-              <FiGithub size={15} />
-              <span>github.com/fitwi-Gebray</span>
-            </a>
-            <a
-              href="https://linkedin.com/in/fitwi-Gebray"
-              target="_blank"
-              rel="noreferrer"
-              className="contact-link"
-            >
-              <FiLinkedin size={15} />
-              <span>linkedin.com/in/fitwi-Gebray</span>
-            </a>
-          </div>
+              Send Message
+            </Button>
 
-          <p>
-            If you like this portfolio, I&apos;m happy to walk you through how I
-            built it during an interview, including structure and decisions.
-          </p>
-        </div>
-      </div>
+            {/* Display success/error messages within contact form */}
+            {(statusMessage || errorMessage) && (
+              <Alert
+                severity={statusMessage ? "success" : "error"}
+                style={{ marginTop: "15px" }}
+              >
+                {statusMessage || errorMessage}
+              </Alert>
+            )}
+          </form>
+        </Grid>
+
+        {/* Right Section: Contact Info */}
+        <Grid item xs={12} md={6}>
+          <div className="contact-info">
+            <div className="contact-pill">Let&apos;s connect</div>
+            <p>
+              The fastest way to reach me is by email, but you can also find me
+              on GitHub and LinkedIn.
+            </p>
+
+            <div className="contact-links">
+              <a href="mailto:fitwigebray8@gmail.com" className="contact-link">
+                <FiMail size={20} />
+                <span>fitwigebray8@gmail.com</span>
+              </a>
+              <a
+                href="https://github.com/fitwi-Gebray"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-link"
+              >
+                <FiGithub size={20} />
+                <span>github.com/fitwi-Gebray</span>
+              </a>
+              <a
+                href="https://linkedin.com/in/fitwi-Gebray"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-link"
+              >
+                <FiLinkedin size={20} />
+                <span>linkedin.com/in/fitwi-Gebray</span>
+              </a>
+            </div>
+
+            <p>
+              If you like this portfolio, I&apos;m happy to walk you through how
+              I built it during an interview, including structure and decisions.
+            </p>
+          </div>
+        </Grid>
+      </Grid>
     </div>
   );
 };
