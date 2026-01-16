@@ -50,13 +50,21 @@ const Contact = () => {
   };
 
   return (
-    <div className="section-inner">
-      <div className="section-header">
-        <div>
-          <div className="section-badge">Next step</div>
-          <h2 className="section-title">Contact</h2>
+    <div
+      style={{
+        padding: "30px",
+        backgroundColor: "#f4f4f9",
+        borderRadius: "8px",
+      }}
+    >
+      <div style={{ marginBottom: "20px" }}>
+        <div
+          style={{ marginBottom: "10px", fontWeight: "bold", fontSize: "18px" }}
+        >
+          Next step
         </div>
-        <p className="section-description">
+        <h2 style={{ fontSize: "32px", marginBottom: "10px" }}>Contact</h2>
+        <p style={{ color: "#555", fontSize: "16px" }}>
           Interested in working together or have a question? Feel free to reach
           out — I&apos;ll respond as soon as I can.
         </p>
@@ -65,91 +73,147 @@ const Contact = () => {
       <Grid container spacing={3}>
         {/* Left Section: Contact Form */}
         <Grid item xs={12} md={6}>
-          <form onSubmit={handleSubmit}>
-            <TextField
-              label="Name"
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <TextField
-              label="Email"
-              type="email"
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
-              label="Message"
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              multiline
-              rows={4}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              fullWidth
-              style={{ marginTop: "20px" }}
-            >
-              Send Message
-            </Button>
-
-            {/* Display success/error messages within contact form */}
-            {(statusMessage || errorMessage) && (
-              <Alert
-                severity={statusMessage ? "success" : "error"}
-                style={{ marginTop: "15px" }}
+          <div
+            style={{
+              backgroundColor: "#ffffff",
+              padding: "20px",
+              borderRadius: "8px",
+              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            <form onSubmit={handleSubmit}>
+              <TextField
+                label="Name"
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                sx={{
+                  marginBottom: "15px",
+                }}
+              />
+              <TextField
+                label="Email"
+                type="email"
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                sx={{
+                  marginBottom: "15px",
+                }}
+              />
+              <TextField
+                label="Message"
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                multiline
+                rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                sx={{
+                  marginBottom: "15px",
+                }}
+              />
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                fullWidth
+                sx={{ marginTop: "20px" }}
               >
-                {statusMessage || errorMessage}
-              </Alert>
-            )}
-          </form>
+                Send Message
+              </Button>
+
+              {/* Display success/error messages within contact form */}
+              {(statusMessage || errorMessage) && (
+                <Alert
+                  severity={statusMessage ? "success" : "error"}
+                  style={{ marginTop: "15px" }}
+                >
+                  {statusMessage || errorMessage}
+                </Alert>
+              )}
+            </form>
+          </div>
         </Grid>
 
         {/* Right Section: Contact Info */}
         <Grid item xs={12} md={6}>
-          <div className="contact-info">
-            <div className="contact-pill">Let&apos;s connect</div>
-            <p>
+          <div
+            style={{
+              backgroundColor: "#ffffff",
+              padding: "20px",
+              borderRadius: "8px",
+              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "#f1f1f1",
+                padding: "10px",
+                borderRadius: "4px",
+                fontWeight: "bold",
+                marginBottom: "10px",
+              }}
+            >
+              Let&apos;s connect
+            </div>
+            <p style={{ fontSize: "16px", marginBottom: "20px" }}>
               The fastest way to reach me is by email, but you can also find me
               on GitHub and LinkedIn.
             </p>
 
-            <div className="contact-links">
-              <a href="mailto:fitwigebray8@gmail.com" className="contact-link">
-                <FiMail size={20} />
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <a
+                href="mailto:fitwigebray8@gmail.com"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  color: "#333",
+                  margin: "10px 0",
+                  fontSize: "16px",
+                }}
+              >
+                <FiMail size={20} style={{ marginRight: "10px" }} />
                 <span>fitwigebray8@gmail.com</span>
               </a>
               <a
                 href="https://github.com/fitwi-Gebray"
                 target="_blank"
                 rel="noreferrer"
-                className="contact-link"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  color: "#333",
+                  margin: "10px 0",
+                  fontSize: "16px",
+                }}
               >
-                <FiGithub size={20} />
+                <FiGithub size={20} style={{ marginRight: "10px" }} />
                 <span>github.com/fitwi-Gebray</span>
               </a>
               <a
                 href="https://linkedin.com/in/fitwi-Gebray"
                 target="_blank"
                 rel="noreferrer"
-                className="contact-link"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  color: "#333",
+                  margin: "10px 0",
+                  fontSize: "16px",
+                }}
               >
-                <FiLinkedin size={20} />
+                <FiLinkedin size={20} style={{ marginRight: "10px" }} />
                 <span>linkedin.com/in/fitwi-Gebray</span>
               </a>
             </div>
 
-            <p>
+            <p style={{ fontSize: "16px" }}>
               If you like this portfolio, I&apos;m happy to walk you through how
               I built it during an interview, including structure and decisions.
             </p>
