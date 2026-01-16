@@ -241,10 +241,92 @@ const Contact = () => {
               </a>
             </div>
 
-            <p style={{ fontSize: "16px", color: "#555" }}>
-              If you like this portfolio, I&apos;m happy to walk you through how
-              I built it during an interview, including structure and decisions.
-            </p>
+            <div
+              style={{
+                backgroundColor: "#ffffff",
+                padding: "20px",
+                borderRadius: "8px",
+                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "16px",
+                  color: "#555",
+                  marginBottom: "20px",
+                }}
+              >
+                If you're interested in learning more about how I built this
+                portfolio, including the structure and the key decisions behind
+                it, I'd be happy to walk you through the process during an
+                interview or detailed discussion.
+              </p>
+
+              <div
+                style={{
+                  textAlign: "center",
+                  marginTop: "20px",
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "16px",
+                    color: "#555",
+                    marginBottom: "10px",
+                  }}
+                >
+                  Let’s chat and explore how I can contribute to your team!
+                </p>
+
+                <a
+                  href="mailto:fitwigebray8@gmail.com"
+                  style={{
+                    display: "inline-block",
+                    padding: "12px 30px",
+                    backgroundColor: "#1E88E5",
+                    color: "#fff",
+                    textDecoration: "none",
+                    borderRadius: "5px",
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    margin: "10px",
+                    transition: "background-color 0.3s ease",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.target.style.backgroundColor = "#1976D2")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.target.style.backgroundColor = "#1E88E5")
+                  }
+                >
+                  Reach Out via Email
+                </a>
+
+                <p
+                  style={{ fontSize: "14px", color: "#888", marginTop: "10px" }}
+                >
+                  Or connect with me on
+                  <a
+                    href="https://linkedin.com/in/fitwi-Gebray"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ marginLeft: "5px", color: "#1E88E5" }}
+                  >
+                    LinkedIn
+                  </a>
+                  or view my projects on
+                  <a
+                    href="https://github.com/fitwi-Gebray"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ marginLeft: "5px", color: "#1E88E5" }}
+                  >
+                    GitHub
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
           </div>
         </Grid>
       </Grid>
