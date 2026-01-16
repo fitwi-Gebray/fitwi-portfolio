@@ -67,10 +67,10 @@ const Contact = () => {
               className="contact-link"
             >
               <FiGithub size={15} />
-              <span>github.com/yourusername</span>
+              <span>github.com/fitwigebray8</span>
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/fitwigebray8"
               target="_blank"
               rel="noreferrer"
               className="contact-link"
