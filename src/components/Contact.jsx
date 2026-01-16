@@ -6,11 +6,19 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [statusMessage, setStatusMessage] = useState(""); // To hold success/error message
+  const [statusMessage, setStatusMessage] = useState(""); // For success/error messages
+  const [errorMessage, setErrorMessage] = useState(""); // For validation error message
 
   // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault(); // Prevents the default form submission
+
+    // Validation: Ensure all fields are filled
+    if (!name || !email || !message) {
+      setErrorMessage("Please fill in all fields.");
+      setStatusMessage(""); // Clear any previous success message
+      return;
+    }
 
     const templateParams = {
       from_name: name,
@@ -28,14 +36,15 @@ const Contact = () => {
       )
       .then(
         () => {
-          // On success, set success message and clear form fields
+          // On success, show success message and clear form fields
           setStatusMessage("Message sent successfully!");
           setName("");
           setEmail("");
           setMessage("");
+          setErrorMessage(""); // Clear any error message
         },
         (error) => {
-          // On error, set error message
+          // On error, show error message
           setStatusMessage("Failed to send message. Please try again.");
           console.error("Error sending email:", error);
         }
@@ -96,7 +105,7 @@ const Contact = () => {
           </button>
         </form>
 
-        {/* Display status message */}
+        {/* Display success/error messages */}
         {statusMessage && (
           <div
             className={`status-message ${
@@ -105,6 +114,11 @@ const Contact = () => {
           >
             {statusMessage}
           </div>
+        )}
+
+        {/* Display validation error message */}
+        {errorMessage && (
+          <div className="status-message error">{errorMessage}</div>
         )}
 
         {/* Contact Info */}
