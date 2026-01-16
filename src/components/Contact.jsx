@@ -307,7 +307,7 @@ const Contact = () => {
                 >
                   Or connect with me on
                   <a
-                    href="https://linkedin.com/in/fitwi-Gebray"
+                    href="https://linkedin.com/in/fitwi Gebray"
                     target="_blank"
                     rel="noreferrer"
                     style={{ marginLeft: "5px", color: "#1E88E5" }}
