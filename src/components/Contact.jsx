@@ -53,17 +53,26 @@ const Contact = () => {
     <div
       style={{
         padding: "30px",
-        backgroundColor: "#f4f4f9",
+        backgroundColor: "#E3F2FD", // Light blue background
         borderRadius: "8px",
       }}
     >
       <div style={{ marginBottom: "20px" }}>
         <div
-          style={{ marginBottom: "10px", fontWeight: "bold", fontSize: "18px" }}
+          style={{
+            marginBottom: "10px",
+            fontWeight: "bold",
+            fontSize: "18px",
+            color: "#1E88E5",
+          }}
         >
           Next step
         </div>
-        <h2 style={{ fontSize: "32px", marginBottom: "10px" }}>Contact</h2>
+        <h2
+          style={{ fontSize: "32px", marginBottom: "10px", color: "#1E88E5" }}
+        >
+          Contact
+        </h2>
         <p style={{ color: "#555", fontSize: "16px" }}>
           Interested in working together or have a question? Feel free to reach
           out — I&apos;ll respond as soon as I can.
@@ -91,6 +100,7 @@ const Contact = () => {
                 onChange={(e) => setName(e.target.value)}
                 sx={{
                   marginBottom: "15px",
+                  borderColor: "#42A5F5", // Light blue border color
                 }}
               />
               <TextField
@@ -103,6 +113,7 @@ const Contact = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 sx={{
                   marginBottom: "15px",
+                  borderColor: "#42A5F5",
                 }}
               />
               <TextField
@@ -116,6 +127,7 @@ const Contact = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 sx={{
                   marginBottom: "15px",
+                  borderColor: "#42A5F5",
                 }}
               />
               <Button
@@ -123,7 +135,14 @@ const Contact = () => {
                 variant="contained"
                 color="primary"
                 fullWidth
-                sx={{ marginTop: "20px" }}
+                sx={{
+                  backgroundColor: "#1E88E5", // Blue button color
+                  color: "#ffffff",
+                  marginTop: "20px",
+                  "&:hover": {
+                    backgroundColor: "#1976D2", // Darker blue on hover
+                  },
+                }}
               >
                 Send Message
               </Button>
@@ -132,7 +151,10 @@ const Contact = () => {
               {(statusMessage || errorMessage) && (
                 <Alert
                   severity={statusMessage ? "success" : "error"}
-                  style={{ marginTop: "15px" }}
+                  style={{
+                    marginTop: "15px",
+                    backgroundColor: statusMessage ? "#C8E6C9" : "#FFCDD2",
+                  }}
                 >
                   {statusMessage || errorMessage}
                 </Alert>
@@ -153,16 +175,19 @@ const Contact = () => {
           >
             <div
               style={{
-                backgroundColor: "#f1f1f1",
+                backgroundColor: "#BBDEFB", // Light blue background for the pill
                 padding: "10px",
                 borderRadius: "4px",
                 fontWeight: "bold",
                 marginBottom: "10px",
+                color: "#1E88E5",
               }}
             >
               Let&apos;s connect
             </div>
-            <p style={{ fontSize: "16px", marginBottom: "20px" }}>
+            <p
+              style={{ fontSize: "16px", marginBottom: "20px", color: "#555" }}
+            >
               The fastest way to reach me is by email, but you can also find me
               on GitHub and LinkedIn.
             </p>
@@ -173,9 +198,10 @@ const Contact = () => {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  color: "#333",
+                  color: "#1E88E5", // Dark blue links
                   margin: "10px 0",
                   fontSize: "16px",
+                  textDecoration: "none",
                 }}
               >
                 <FiMail size={20} style={{ marginRight: "10px" }} />
@@ -188,9 +214,10 @@ const Contact = () => {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  color: "#333",
+                  color: "#1E88E5",
                   margin: "10px 0",
                   fontSize: "16px",
+                  textDecoration: "none",
                 }}
               >
                 <FiGithub size={20} style={{ marginRight: "10px" }} />
@@ -203,9 +230,10 @@ const Contact = () => {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  color: "#333",
+                  color: "#1E88E5",
                   margin: "10px 0",
                   fontSize: "16px",
+                  textDecoration: "none",
                 }}
               >
                 <FiLinkedin size={20} style={{ marginRight: "10px" }} />
@@ -213,7 +241,7 @@ const Contact = () => {
               </a>
             </div>
 
-            <p style={{ fontSize: "16px" }}>
+            <p style={{ fontSize: "16px", color: "#555" }}>
               If you like this portfolio, I&apos;m happy to walk you through how
               I built it during an interview, including structure and decisions.
             </p>
