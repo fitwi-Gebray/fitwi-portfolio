@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
-import emailjs from "emailjs-com"; // Make sure you have emailjs-com installed
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [statusMessage, setStatusMessage] = useState(""); // To hold success/error message
 
   // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission
 
     const templateParams = {
       from_name: name,
@@ -17,26 +18,26 @@ const Contact = () => {
       message: message,
     };
 
-    // EmailJS service
+    // Send the email using EmailJS
     emailjs
       .send(
-        "service_yxi6i3a",
-        "template_mxtnxdt",
+        "service_yxi6i3a", // Replace with your service ID
+        "template_mxtnxdt", // Replace with your template ID
         templateParams,
-        "1M7uR3ocUiy1n0acu"
+        "1M7uR3ocUiy1n0acu" // Replace with your user ID
       )
       .then(
         () => {
-          alert("Message sent successfully!");
-
-          // Clear the form fields
+          // On success, set success message and clear form fields
+          setStatusMessage("Message sent successfully!");
           setName("");
           setEmail("");
           setMessage("");
         },
         (error) => {
-          alert("Failed to send message. Please try again.");
-          console.error(error);
+          // On error, set error message
+          setStatusMessage("Failed to send message. Please try again.");
+          console.error("Error sending email:", error);
         }
       );
   };
@@ -55,6 +56,7 @@ const Contact = () => {
       </div>
 
       <div className="contact-grid">
+        {/* Form */}
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-field">
@@ -87,12 +89,25 @@ const Contact = () => {
               onChange={(e) => setMessage(e.target.value)}
             />
           </div>
+          {/* Submit Button */}
           <button type="submit" className="btn-primary">
             <FiMail size={16} />
             <span>Send message</span>
           </button>
         </form>
 
+        {/* Display status message */}
+        {statusMessage && (
+          <div
+            className={`status-message ${
+              statusMessage.includes("success") ? "success" : "error"
+            }`}
+          >
+            {statusMessage}
+          </div>
+        )}
+
+        {/* Contact Info */}
         <div className="contact-info">
           <div className="contact-pill">Let&apos;s connect</div>
           <p>
