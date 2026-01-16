@@ -10,7 +10,7 @@ const Contact = () => {
   const [errorMessage, setErrorMessage] = useState(""); // For validation error message
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents the default form submission
 
     // Validation: Ensure all fields are filled
@@ -26,29 +26,26 @@ const Contact = () => {
       message: message,
     };
 
-    // Send the email using EmailJS
-    emailjs
-      .send(
+    try {
+      // Send the email using EmailJS
+      await emailjs.send(
         "service_yxi6i3a", // Replace with your service ID
         "template_mxtnxdt", // Replace with your template ID
         templateParams,
         "1M7uR3ocUiy1n0acu" // Replace with your user ID
-      )
-      .then(
-        () => {
-          // On success, show success message and clear form fields
-          setStatusMessage("Message sent successfully!");
-          setName("");
-          setEmail("");
-          setMessage("");
-          setErrorMessage(""); // Clear any error message
-        },
-        (error) => {
-          // On error, show error message
-          setStatusMessage("Failed to send message. Please try again.");
-          console.error("Error sending email:", error);
-        }
       );
+
+      // On success, show success message and clear form fields
+      setStatusMessage("Message sent successfully!");
+      setName("");
+      setEmail("");
+      setMessage("");
+      setErrorMessage(""); // Clear any error message
+    } catch (error) {
+      // On error, show error message
+      setStatusMessage("Failed to send message. Please try again.");
+      console.error("Error sending email:", error);
+    }
   };
 
   return (
