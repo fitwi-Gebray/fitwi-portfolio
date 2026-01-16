@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
+import { FiAlertCircle } from "react-icons/fi"; // Red exclamation mark icon for error
 import emailjs from "emailjs-com";
 
 const Contact = () => {
@@ -102,20 +103,17 @@ const Contact = () => {
           </button>
         </form>
 
-        {/* Display success/error messages */}
-        {statusMessage && (
+        {/* Display success/error messages within contact area */}
+        {(statusMessage || errorMessage) && (
           <div
-            className={`status-message ${
-              statusMessage.includes("success") ? "success" : "error"
-            }`}
+            className={`status-message ${statusMessage ? "success" : "error"}`}
           >
-            {statusMessage}
+            <FiAlertCircle
+              size={20}
+              color={statusMessage ? "#4caf50" : "#f44336"}
+            />
+            <span>{statusMessage || errorMessage}</span>
           </div>
-        )}
-
-        {/* Display validation error message */}
-        {errorMessage && (
-          <div className="status-message error">{errorMessage}</div>
         )}
 
         {/* Contact Info */}
