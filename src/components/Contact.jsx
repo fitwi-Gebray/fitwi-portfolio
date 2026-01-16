@@ -224,7 +224,7 @@ const Contact = () => {
                 <span>github.com/fitwi-Gebray</span>
               </a>
               <a
-                href="https://linkedin.com/in/fitwi-Gebray"
+                href="https://linkedin.com/in/fitwi-gebray-teklemichael"
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -237,7 +237,7 @@ const Contact = () => {
                 }}
               >
                 <FiLinkedin size={20} style={{ marginRight: "10px" }} />
-                <span>linkedin.com/in/fitwi-gebray-teklemichael</span>
+                <span>linkedin.com/fitwi-gebray-teklemichael</span>
               </a>
             </div>
 
