@@ -237,9 +237,7 @@ const Contact = () => {
                 }}
               >
                 <FiLinkedin size={20} style={{ marginRight: "10px" }} />
-                <span>
-                  https://www.linkedin.com/in/fitwi-gebray-teklemichael-4aa1a02a4/
-                </span>
+                <span>linkedin.com/in/fitwi-gebray-teklemichael</span>
               </a>
             </div>
 
