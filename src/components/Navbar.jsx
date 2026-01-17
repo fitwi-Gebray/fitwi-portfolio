@@ -5,7 +5,7 @@ const Navbar = () => {
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const imageUrl = "https://i.imgur.com/Y6BuswM.jpeg";
@@ -50,7 +50,7 @@ const Navbar = () => {
         <nav className="nav-links">
           <button
             className="nav-link"
-            style={{ fontSize: "26px" }}
+            style={{ fontSize: "24px" }}
             onClick={() => scrollToSection("home")}
           >
             Home
@@ -58,7 +58,7 @@ const Navbar = () => {
 
           <button
             className="nav-link"
-            style={{ fontSize: "26px" }}
+            style={{ fontSize: "24px" }}
             onClick={() => scrollToSection("projects")}
           >
             Projects
@@ -66,7 +66,7 @@ const Navbar = () => {
 
           <button
             className="nav-link"
-            style={{ fontSize: "26px" }}
+            style={{ fontSize: "24px" }}
             onClick={() => scrollToSection("skills")}
           >
             Skills
@@ -74,7 +74,7 @@ const Navbar = () => {
 
           <button
             className="nav-link"
-            style={{ fontSize: "26px" }}
+            style={{ fontSize: "24px" }}
             onClick={() => scrollToSection("about")}
           >
             About
@@ -82,7 +82,7 @@ const Navbar = () => {
 
           <button
             className="nav-link"
-            style={{ fontSize: "26px" }}
+            style={{ fontSize: "24px" }}
             onClick={() => scrollToSection("contact")}
           >
             Contact
