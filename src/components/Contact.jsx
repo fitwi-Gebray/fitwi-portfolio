@@ -1,10 +1,19 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
+import { FiMail, FiGithub, FiLinkedin, FiRotateCcw } from "react-icons/fi";
 
 const Contact = () => {
   const formRef = useRef();
   const [status, setStatus] = useState(""); // "", "sending", "success", "error"
+  const [message, setMessage] = useState(""); // Tracked for real-time character counter
+  const MAX_CHARS = 500;
+
+  // Function to clear all fields and status
+  const handleClear = () => {
+    formRef.current.reset();
+    setMessage("");
+    setStatus("");
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -18,10 +27,10 @@ const Contact = () => {
     const templateParams = {
       user_name: formRef.current.user_name.value,
       user_email: formRef.current.user_email.value,
-      message: formRef.current.message.value,
+      message: message, // Uses the state value
     };
 
-    // 3. Access environment variables for security
+    // 3. Access environment variables for security (Vite 2026 standard)
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -29,9 +38,9 @@ const Contact = () => {
     emailjs.send(serviceId, templateId, templateParams, publicKey).then(
       () => {
         setStatus("success");
-        formRef.current.reset();
+        handleClear(); // Clear form on success
 
-        // 4. Reset UI message after 5 seconds
+        // Reset UI message after 5 seconds
         setTimeout(() => setStatus(""), 5000);
       },
       (error) => {
@@ -46,20 +55,18 @@ const Contact = () => {
 
   return (
     <div className="section-inner">
-      {/* --- HEADER SECTION --- */}
       <div className="section-header">
         <div>
           <div className="section-badge">Next step</div>
           <h2 className="section-title">Contact</h2>
         </div>
         <p className="section-description">
-          Interested in working together or have a question? Feel free to reach
-          out — I&apos;ll respond as soon as I can.
+          Interested in working together? Feel free to reach out — I&apos;ll
+          respond as soon as I can.
         </p>
       </div>
 
       <div className="contact-grid">
-        {/* --- FORM SECTION --- */}
         <form ref={formRef} className="contact-form" onSubmit={sendEmail}>
           <div className="form-row">
             <div className="form-field">
@@ -85,26 +92,54 @@ const Contact = () => {
           </div>
 
           <div className="form-field">
-            <label className="form-label">Message</label>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <label className="form-label">Message</label>
+              {/* --- CHARACTER COUNTER --- */}
+              <span
+                style={{
+                  fontSize: "0.8rem",
+                  color: message.length >= MAX_CHARS ? "red" : "gray",
+                }}
+              >
+                {message.length} / {MAX_CHARS}
+              </span>
+            </div>
             <textarea
               className="form-textarea"
               name="message"
               placeholder="Tell me a bit about what you're looking for..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              maxLength={MAX_CHARS}
               required
             />
           </div>
 
-          {/* IMPROVEMENT: Button is visually and functionally disabled during sending */}
-          <button
-            type="submit"
-            className="btn-primary"
-            disabled={status === "sending"}
-          >
-            <FiMail size={16} />
-            <span>{status === "sending" ? "Sending..." : "Send message"}</span>
-          </button>
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <button
+              type="submit"
+              className="btn-primary"
+              disabled={status === "sending"}
+            >
+              <FiMail size={16} />
+              <span>
+                {status === "sending" ? "Sending..." : "Send message"}
+              </span>
+            </button>
 
-          {/* Feedback Messages */}
+            {/* --- CLEAR BUTTON --- */}
+            <button
+              type="button"
+              className="btn-secondary"
+              onClick={handleClear}
+              disabled={status === "sending"}
+              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+            >
+              <FiRotateCcw size={16} />
+              <span>Clear</span>
+            </button>
+          </div>
+
           {status === "success" && (
             <p className="success-msg">Message sent successfully!</p>
           )}
@@ -113,20 +148,13 @@ const Contact = () => {
           )}
         </form>
 
-        {/* --- SIDEBAR INFO SECTION --- */}
         <div className="contact-info">
           <div className="contact-pill">Let&apos;s connect</div>
-          <p>
-            The fastest way to reach me is by email, but you can also find me on
-            GitHub and LinkedIn.
-          </p>
-
           <div className="contact-links">
             <a href="mailto:fitwigebray8@gmail.com" className="contact-link">
               <FiMail size={15} />
               <span>fitwigebray8@gmail.com</span>
             </a>
-
             <a
               href="https://github.com"
               target="_blank"
@@ -136,7 +164,6 @@ const Contact = () => {
               <FiGithub size={15} />
               <span>://github.com</span>
             </a>
-
             <a
               href="https://linkedin.com"
               target="_blank"
@@ -147,11 +174,6 @@ const Contact = () => {
               <span>://linkedin.com</span>
             </a>
           </div>
-
-          <p className="contact-footer-note">
-            If you like this portfolio, I&apos;m happy to walk you through how I
-            built it during an interview, including structure and decisions.
-          </p>
         </div>
       </div>
     </div>
