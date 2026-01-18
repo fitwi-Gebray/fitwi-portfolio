@@ -1,23 +1,29 @@
-// src/components/Hero.jsx
 import { FiArrowRight } from "react-icons/fi";
 
 const Hero = () => {
-  const scrollToProjects = () => {
-    const el = document.getElementById("projects");
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  // 1. Move skills to a dynamic array (Easy to update/maintain)
+  const coreStack = [
+    "React",
+    "JavaScript",
+    "HTML5",
+    "CSS3",
+    "Tailwind",
+    "REST APIs",
+    "Git",
+  ];
 
-  const scrollToContact = () => {
-    const el = document.getElementById("contact");
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  // 2. Smooth Scroll Logic
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
     <section className="hero">
       <div className="hero-inner">
-        <div>
+        <div className="hero-left">
           <div className="hero-pill">
             <span className="hero-dot" />
             <span>Available for frontend opportunities</span>
@@ -44,11 +50,17 @@ const Hero = () => {
           </div>
 
           <div className="hero-buttons">
-            <button className="btn-primary" onClick={scrollToProjects}>
+            <button
+              className="btn-primary"
+              onClick={() => scrollToSection("projects")}
+            >
               View projects
               <FiArrowRight size={16} />
             </button>
-            <button className="btn-secondary" onClick={scrollToContact}>
+            <button
+              className="btn-secondary"
+              onClick={() => scrollToSection("contact")}
+            >
               Contact me
             </button>
           </div>
@@ -85,11 +97,11 @@ const Hero = () => {
                 Core stack
               </div>
               <div className="hero-tech">
-                <span className="hero-tech-pill">React</span>
-                <span className="hero-tech-pill">JavaScript</span>
-                <span className="hero-tech-pill">HTML</span>
-                <span className="hero-tech-pill">CSS</span>
-                <span className="hero-tech-pill">REST APIs</span>
+                {coreStack.map((tech, index) => (
+                  <span key={index} className="hero-tech-pill">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
 
