@@ -1,10 +1,11 @@
+import React from "react";
 import { FiArrowRight } from "react-icons/fi";
-import { heroData } from "../data/heroData";
-import { scrollToSection } from "../utils/scrollToSection";
+import { heroData } from "../../data/heroData";
+import { scrollToSection } from "../../utils/scrollToSection";
 
-import Button from "./ui/Button";
-import Pill from "./ui/Pill";
-import Stat from "./ui/Stat";
+import Button from "../ui/Button";
+import Pill from "../ui/Pill";
+import Stat from "../ui/Stat";
 
 const Hero = () => {
   const { availabilityText, heading, subtitle, meta, coreStack, stats } =

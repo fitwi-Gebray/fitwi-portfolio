@@ -1,16 +1,46 @@
-# React + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal frontend portfolio! This project showcases my skills in building **clean, modern, and accessible web interfaces** using React.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Project Overview
 
-## React Compiler
+- Interactive Hero section with CTA buttons
+- Core stack and stats dynamically rendered
+- Responsive design with semantic HTML and CSS
+- Focused on accessibility and user experience
+- Tested using Jest and React Testing Library
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio is designed to demonstrate **practical frontend engineering skills**, including **component-based architecture, testing, accessibility, and responsive UI**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- **React 19** – Component-driven architecture
+- **Tailwind CSS & Semantic CSS** – Styling and layout
+- **MUI Icons** – UI elements
+- **React Icons** – Additional icons
+- **React Toastify** – Notifications
+- **EmailJS** – Contact form integration
+- **Jest + React Testing Library** – Component testing
+- **Vite** – Fast development and build tooling
+
+---
+
+## 🧪 Testing
+
+This project uses **Jest** with **React Testing Library** to ensure reliable UI behavior:
+
+- Rendering tests for headings, meta information, core stack, stats, and buttons
+- Interaction tests for smooth scroll functionality
+- Edge case and fallback tests
+- Accessibility checks with proper roles
+
+Run tests with:
+
+```bash
+npm test
+
+```

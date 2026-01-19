@@ -1,3 +1,4 @@
+import React from "react";
 const Stat = ({ value, label }) => {
   return (
     <div className="hero-stat">
