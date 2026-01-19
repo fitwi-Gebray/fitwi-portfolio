@@ -1,104 +1,76 @@
 import { FiArrowRight } from "react-icons/fi";
+import { heroData } from "../data/heroData";
+import { scrollToSection } from "../utils/scrollToSection";
+
+import Button from "./ui/Button";
+import Pill from "./ui/Pill";
+import Stat from "./ui/Stat";
 
 const Hero = () => {
-  // 1. Move skills to a dynamic array (Easy to update/maintain)
-  const coreStack = [
-    "React",
-    "JavaScript",
-    "HTML5",
-    "CSS3",
-    "Tailwind",
-    "REST APIs",
-    "Git",
-  ];
-
-  // 2. Smooth Scroll Logic
-  const scrollToSection = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const { availabilityText, heading, subtitle, meta, coreStack, stats } =
+    heroData;
 
   return (
     <section className="hero">
       <div className="hero-inner">
+        {/* LEFT */}
         <div className="hero-left">
-          <div className="hero-pill">
+          <Pill>
             <span className="hero-dot" />
-            <span>Available for frontend opportunities</span>
-          </div>
+            {availabilityText}
+          </Pill>
 
           <h1 className="hero-heading">
-            I build
-            <span className="hero-gradient">
-              {" "}
-              clean, modern web interfaces
-            </span>{" "}
-            with React.
+            {heading.normal}{" "}
+            <span className="hero-gradient">{heading.highlight}</span>{" "}
+            {heading.suffix}
           </h1>
 
-          <p className="hero-subtitle">
-            I focus on translating ideas into fast, responsive, and usable
-            interfaces. Strong in React, JavaScript, and building UI that feels
-            polished and intentional.
-          </p>
+          <p className="hero-subtitle">{subtitle}</p>
 
           <div className="hero-meta">
-            <span>Location: Netherlands (open to remote)</span>
-            <span>Focus: Frontend / React</span>
+            {meta.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
           </div>
 
           <div className="hero-buttons">
-            <button
-              className="btn-primary"
-              onClick={() => scrollToSection("projects")}
-            >
-              View projects
-              <FiArrowRight size={16} />
-            </button>
-            <button
-              className="btn-secondary"
+            <Button onClick={() => scrollToSection("projects")}>
+              View projects <FiArrowRight size={16} />
+            </Button>
+
+            <Button
+              variant="secondary"
               onClick={() => scrollToSection("contact")}
             >
               Contact me
-            </button>
+            </Button>
           </div>
         </div>
 
+        {/* RIGHT */}
         <div className="hero-right">
           <div className="hero-card">
             <div>
-              <span className="hero-pill">Portfolio overview</span>
+              <Pill>Portfolio overview</Pill>
+
               <div className="hero-stats">
-                <div className="hero-stat">
-                  <div className="hero-stat-value">3+</div>
-                  <div className="hero-stat-label">
-                    Production-like projects
-                  </div>
-                </div>
-                <div className="hero-stat">
-                  <div className="hero-stat-value">React</div>
-                  <div className="hero-stat-label">Frontend focus</div>
-                </div>
+                {stats.map((stat) => (
+                  <Stat
+                    key={stat.label}
+                    value={stat.value}
+                    label={stat.label}
+                  />
+                ))}
               </div>
             </div>
 
             <div className="hero-divider" />
 
             <div>
-              <div
-                style={{
-                  fontSize: "0.78rem",
-                  color: "#9ca3af",
-                  marginBottom: "0.4rem",
-                }}
-              >
-                Core stack
-              </div>
               <div className="hero-tech">
-                {coreStack.map((tech, index) => (
-                  <span key={index} className="hero-tech-pill">
+                {coreStack.map((tech) => (
+                  <span key={tech} className="hero-tech-pill">
                     {tech}
                   </span>
                 ))}
