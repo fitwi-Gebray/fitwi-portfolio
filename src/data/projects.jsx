@@ -1,5 +1,5 @@
 // src/data/projects.js
-import travelPlannerImg from "../assets/projects/travel-planner.png";
+import travelplanner from "../assets/projects.jsx/flight.png";
 
 const projects = [
   {
@@ -13,7 +13,6 @@ const projects = [
     githubUrl: "https://github.com/fitwi-Gebray/fitwi-dashboard",
   },
 
-  // ⭐ Travel Planner moved into ID 2 ⭐
   {
     id: 2,
     title: "Travel Planner App",
@@ -21,7 +20,7 @@ const projects = [
     description:
       "A modern travel planning application built with React, Vite, and Material UI. Includes a full-screen hero background, destination search, and a clean responsive layout.",
     tech: ["React", "Vite", "Material UI", "CSS"],
-    image: travelPlannerImg,
+    image: travelplanner,
     liveUrl: "https://travel-planner-page.vercel.app",
     githubUrl: "https://github.com/fitwi-Gebray/travel-planner-page",
   },
@@ -36,8 +35,6 @@ const projects = [
     liveUrl: "https://fitwi-ecommerce.vercel.app",
     githubUrl: "https://github.com/fitwi-Gebray/fitwi-ecommerce",
   },
-
-  ,
 ];
 
 export default projects;

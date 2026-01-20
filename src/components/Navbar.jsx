@@ -1,5 +1,4 @@
 import { FiMail } from "react-icons/fi";
-
 const Navbar = () => {
   const navLinks = [
     { name: "Home", id: "home" },
@@ -19,6 +18,7 @@ const Navbar = () => {
     <header className="navbar">
       <div className="navbar-inner">
         {/* LOGO SECTION */}
+
         <div
           className="nav-logo"
           onClick={() => scrollToSection("home")}
