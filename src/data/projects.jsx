@@ -4,9 +4,9 @@ const projects = [
   {
     id: 4,
     title: "Admin Dashboard",
-    role: "Frontend",
+    role: "Frontend Developer",
     description:
-      "A modern admin dashboard featuring analytics charts, user tables, dark mode, and a clean responsive layout. Built with React, Vite, Material UI, and Recharts.",
+      "A modern, production-ready admin dashboard featuring interactive analytics charts, dynamic user tables, and a dark mode toggle. Built with React, Vite, Material UI, and Recharts, designed for scalability, responsiveness, and clean UI composition.",
     tech: ["React", "Vite", "Material UI", "Recharts", "JavaScript"],
     liveUrl: "https://fitwi-dashboard.vercel.app",
     githubUrl: "https://github.com/fitwi-Gebray/fitwi-dashboard",
@@ -17,25 +17,25 @@ const projects = [
     title: "Modular React Landing & Portfolio",
     role: "Frontend Architecture",
     description:
-      "A production-ready modular React landing page focused on scalability and maintainability. Features clean routing, reusable components, and data-driven sections using React, Vite, and React Router.",
+      "A fully modular React landing page and portfolio showcase demonstrating best practices in frontend architecture. Features scalable, reusable components, clean routing with React Router, and data-driven sections using Vite. Optimized for maintainability, readability, and production-ready performance.",
     tech: [
       "React",
       "Vite",
       "React Router",
-      "Component Architecture",
+      "Component-driven Architecture",
       "JavaScript",
     ],
-    liveUrl: "https://your-landing-url.vercel.app",
-    githubUrl: "https://github.com/fitwi-Gebray/your-repo-name",
+    liveUrl: "https://frontend-architecture-showcase.vercel.app",
+    githubUrl: "https://github.com/fitwi-Gebray/frontend-architecture-showcase",
   },
 
   {
     id: 2,
     title: "Travel Planner App",
-    role: "Frontend",
+    role: "Frontend Developer",
     description:
-      "A modern travel planning application built with React, Vite, and Material UI. Includes a full-screen hero background, destination search, and a clean responsive layout.",
-    tech: ["React", "Vite", "Material UI", "CSS"],
+      "A modern, user-friendly travel planning application built with React, Vite, and Material UI. Features a full-screen hero section, intuitive destination search, and responsive layout, designed to deliver a seamless experience across devices.",
+    tech: ["React", "Vite", "Material UI", "CSS", "JavaScript"],
     liveUrl: "https://travel-planner-page.vercel.app",
     githubUrl: "https://github.com/fitwi-Gebray/travel-planner-page",
   },
