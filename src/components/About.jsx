@@ -12,10 +12,19 @@ const About = () => {
       <div className="about-grid">
         <div className="about-text">
           <p>
-            I&apos;m a frontend developer who enjoys turning ideas into clean,
-            functional web interfaces. My main focus is React and modern
-            JavaScript, and I care a lot about structure, clarity, and
-            usability.
+            I&apos;m a frontend engineer passionate about building scalable,
+            maintainable, and production-ready React applications. I focus on
+            modular architecture, reusable components, clean routing, and
+            data-driven UI composition. Some highlights of my work: - **Modular
+            React Architecture Showcase:** Demonstrates routing, reusable
+            components, and scalable folder structure. [Live
+            Demo](https://frontend-architecture-showcase-j24qgxvkt-fitwis-projects.vercel.app/)
+            - **Admin Dashboard:** Analytics charts, tables, dark mode, built
+            with React, Vite, Material UI, and Recharts. - **Travel Planner
+            App:** Full-screen UI, destination search, responsive design, built
+            with React and Material UI. I enjoy creating applications that
+            balance user experience with engineering best practices. Always
+            learning new technologies and applying them to real-world problems.
           </p>
           <br />
           <p>
