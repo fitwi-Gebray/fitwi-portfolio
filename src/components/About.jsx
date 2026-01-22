@@ -35,14 +35,29 @@ const About = () => {
         </div>
 
         <div className="about-highlight">
-          <p>
-            I&apos;m currently looking for a junior or frontend role where I
-            can:
+          <p style={{ fontSize: "1.1rem", fontWeight: "500" }}>
+            I&apos;m currently seeking a junior or frontend role where I can:
           </p>
-          <ul style={{ marginTop: "0.6rem", paddingLeft: "1.2rem" }}>
-            <li>Work with React on real-world products</li>
-            <li>Grow my skills with a supportive team</li>
-            <li>Contribute to both UI and implementation</li>
+          <ul
+            style={{
+              marginTop: "0.8rem",
+              paddingLeft: "1.5rem",
+              fontSize: "1rem",
+              lineHeight: "1.6",
+            }}
+          >
+            <li>
+              Apply and deepen my React skills by working on real-world,
+              impactful products
+            </li>
+            <li>
+              Grow as a developer within a supportive and collaborative team
+              environment
+            </li>
+            <li>
+              Contribute meaningfully to both UI design and implementation,
+              ensuring a polished user experience
+            </li>
           </ul>
         </div>
       </div>
