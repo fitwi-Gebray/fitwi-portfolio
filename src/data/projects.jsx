@@ -2,7 +2,7 @@ import React from "react";
 
 const projects = [
   {
-    id: 4,
+    id: 1,
     title: "Admin Dashboard",
     role: "Frontend Developer",
     description:
@@ -13,7 +13,7 @@ const projects = [
   },
 
   {
-    id: 5,
+    id: 2,
     title: "Modular React Landing & Portfolio",
     role: "Frontend Architecture",
     description:
@@ -30,7 +30,7 @@ const projects = [
   },
 
   {
-    id: 2,
+    id: 3,
     title: "Travel Planner App",
     role: "Frontend Developer",
     description:
