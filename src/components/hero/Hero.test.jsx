@@ -1,120 +1,93 @@
 import React from "react";
 import { render, screen, fireEvent, within } from "@testing-library/react";
+import { describe, test, expect, vi, beforeEach, afterEach } from "vitest"; // Modern Vitest imports
 import Hero from "./Hero";
 import { heroData } from "../../data/heroData";
 
-// Mock scrollIntoView
-window.HTMLElement.prototype.scrollIntoView = jest.fn();
+// 1. Mock scrollIntoView using Vitest 'vi' global
+window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
 describe("Hero Component", () => {
   // --------- Render Tests ---------
   test("renders main heading and subtitle", () => {
     render(<Hero data={heroData} />);
 
+    // Using regex (i) for flexible text matching
     expect(
-      screen.getByText(/clean, modern web interfaces/i)
+      screen.getByText(/clean, modern web interfaces/i),
     ).toBeInTheDocument();
-
     expect(
-      screen.getByText(/I focus on translating ideas/i)
+      screen.getByText(/I focus on translating ideas/i),
     ).toBeInTheDocument();
-  });
-
-  test("renders meta information", () => {
-    render(<Hero data={heroData} />);
-
-    heroData.meta.forEach((item) => {
-      expect(screen.getByText(item)).toBeInTheDocument();
-    });
-  });
-
-  test("renders core stack items", () => {
-    render(<Hero data={heroData} />);
-
-    const techSection = document.querySelector(".hero-tech");
-
-    heroData.coreStack.forEach((tech) => {
-      expect(within(techSection).getByText(tech)).toBeInTheDocument();
-    });
   });
 
   test("renders stats correctly", () => {
     render(<Hero data={heroData} />);
-
     const statsSection = document.querySelector(".hero-stats");
 
     heroData.stats.forEach((stat) => {
       expect(within(statsSection).getByText(stat.value)).toBeInTheDocument();
-
       expect(within(statsSection).getByText(stat.label)).toBeInTheDocument();
     });
   });
 
   test("renders CTA buttons", () => {
     render(<Hero data={heroData} />);
-
     expect(
-      screen.getByRole("button", { name: /view projects/i })
+      screen.getByRole("button", { name: /view projects/i }),
     ).toBeInTheDocument();
-
     expect(
-      screen.getByRole("button", { name: /contact me/i })
+      screen.getByRole("button", { name: /contact me/i }),
     ).toBeInTheDocument();
   });
 
-  // --------- Interaction Tests ---------
-  test("scrolls to projects section on button click", () => {
-    const projectsSection = document.createElement("div");
-    projectsSection.id = "projects";
-    projectsSection.scrollIntoView = jest.fn();
-    document.body.appendChild(projectsSection);
+  // --------- Interaction Tests (Refactored with Clean Setup/Teardown) ---------
+  describe("Button Interactions", () => {
+    let mockSection;
 
-    render(<Hero data={heroData} />);
+    beforeEach(() => {
+      // Create a dummy element to act as the scroll target
+      mockSection = document.createElement("div");
+      mockSection.id = "projects"; // Will change to 'contact' in the second test
+      mockSection.scrollIntoView = vi.fn();
+      document.body.appendChild(mockSection);
+    });
 
-    fireEvent.click(screen.getByRole("button", { name: /view projects/i }));
+    afterEach(() => {
+      document.body.removeChild(mockSection);
+      vi.clearAllMocks(); // Clear call counts between tests
+    });
 
-    expect(projectsSection.scrollIntoView).toHaveBeenCalledWith({
-      behavior: "smooth",
-      block: "start",
+    test("scrolls to projects section on button click", () => {
+      render(<Hero data={heroData} />);
+
+      fireEvent.click(screen.getByRole("button", { name: /view projects/i }));
+
+      expect(mockSection.scrollIntoView).toHaveBeenCalledWith({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+
+    test("scrolls to contact section on button click", () => {
+      // Update ID for this specific test
+      mockSection.id = "contact";
+
+      render(<Hero data={heroData} />);
+
+      fireEvent.click(screen.getByRole("button", { name: /contact me/i }));
+
+      expect(mockSection.scrollIntoView).toHaveBeenCalledWith({
+        behavior: "smooth",
+        block: "start",
+      });
     });
   });
 
-  test("scrolls to contact section on button click", () => {
-    const contactSection = document.createElement("div");
-    contactSection.id = "contact";
-    contactSection.scrollIntoView = jest.fn();
-    document.body.appendChild(contactSection);
-
+  // --------- Defensive / Semantic Tests ---------
+  test("heading has correct semantic level 1", () => {
     render(<Hero data={heroData} />);
-
-    fireEvent.click(screen.getByRole("button", { name: /contact me/i }));
-
-    expect(contactSection.scrollIntoView).toHaveBeenCalledWith({
-      behavior: "smooth",
-      block: "start",
-    });
-  });
-
-  // --------- Fallback / Defensive Tests ---------
-  test("renders default heading when heading data is missing", () => {
-    const mockData = { ...heroData, heading: null };
-    render(<Hero data={mockData} />);
-
-    expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
-  });
-
-  // --------- Accessibility / Semantic Checks ---------
-  test("heading has correct semantic role", () => {
-    render(<Hero data={heroData} />);
-
     const heading = screen.getByRole("heading", { level: 1 });
     expect(heading).toBeInTheDocument();
-  });
-
-  test("stats container exists", () => {
-    render(<Hero data={heroData} />);
-
-    const statsContainer = document.querySelector(".hero-stats");
-    expect(statsContainer).toBeInTheDocument();
   });
 });

@@ -1,3 +1,2 @@
-import "@testing-library/jest-dom";
-
-window.HTMLElement.prototype.scrollIntoView = jest.fn();
+import "@testing-library/jest-dom/vitest";
+window.HTMLElement.prototype.scrollIntoView = vi.fn();

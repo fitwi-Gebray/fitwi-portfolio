@@ -22,13 +22,13 @@ const ProjectCard = ({
 
       <p className="project-description">{description}</p>
 
-      <div className="project-tech">
-        {tech.map((item) => (
-          <span key={item} className="project-tech-pill">
-            {item}
-          </span>
-        ))}
-      </div>
+      {tech?.length
+        ? tech.map((item) => (
+            <span key={item} className="project-tech-pill">
+              {item}
+            </span>
+          ))
+        : null}
 
       <div className="project-links">
         {githubUrl && (
