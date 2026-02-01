@@ -41,7 +41,6 @@ describe("Hero Component", () => {
     ).toBeInTheDocument();
   });
 
-  // --------- Interaction Tests (Refactored with Clean Setup/Teardown) ---------
   describe("Button Interactions", () => {
     let mockSection;
 
@@ -70,7 +69,6 @@ describe("Hero Component", () => {
     });
 
     test("scrolls to contact section on button click", () => {
-      // Update ID for this specific test
       mockSection.id = "contact";
 
       render(<Hero data={heroData} />);
@@ -84,7 +82,6 @@ describe("Hero Component", () => {
     });
   });
 
-  // --------- Defensive / Semantic Tests ---------
   test("heading has correct semantic level 1", () => {
     render(<Hero data={heroData} />);
     const heading = screen.getByRole("heading", { level: 1 });
